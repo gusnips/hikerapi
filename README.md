@@ -117,7 +117,7 @@ HikerAPI's file lists two errors for its endpoints:
 | 404    | Not found. The file gives it no body, so the message only names the status. |
 | 422    | A parameter is missing or wrong. The message names the field.               |
 
-HikerAPI also answers with other statuses, such as 429. Its docs say it does not bill calls that end in 429, a 5xx or "service unavailable". Read `error.status` and `error.body` for any status.
+HikerAPI can answer with other statuses too. Read `error.status` and `error.body` for any of them.
 
 Network failures, like a lost connection, throw the error `fetch` gives you.
 
