@@ -1,0 +1,70 @@
+{
+  "name": "@gusnips/hikerapi",
+  "version": "0.1.0",
+  "author": "Gustavo Salomé (gusnips)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusnips/hikerapi.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.12.0",
+    "openapi-typescript": "7.13.0",
+    "prettier": "^3.9.10",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.1"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/gusnips/hikerapi/issues"
+  },
+  "description": "Unofficial TypeScript SDK for the HikerAPI Instagram data API: profiles, posts, reels, stories, comments, followers, hashtags, locations and search",
+  "engines": {
+    "node": ">=18.3.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/gusnips/hikerapi#readme",
+  "keywords": [
+    "hikerapi",
+    "instagram",
+    "scraping",
+    "social-media",
+    "api-client",
+    "typescript"
+  ],
+  "license": "MIT",
+  "packageManager": "bun@1.4.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "generate": "bun scripts/generate.ts && prettier --write src",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src scripts",
+    "format": "prettier --write .",
+    "test": "bun test",
+    "prepublishOnly": "bun run lint && bun run typecheck && bun run build"
+  },
+  "types": "dist/index.d.ts"
+}
